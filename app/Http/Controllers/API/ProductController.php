@@ -10,7 +10,6 @@ use Validator;
    
 class ProductController extends BaseController
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +20,6 @@ class ProductController extends BaseController
         $categoryList = Category::where('parent_id','0')->with('children')->get()->toArray();
         return $this->sendResponse($categoryList, 'Category retrieved successfully.');
     }
-
 
     /**
      * Display a listing of the resource.
