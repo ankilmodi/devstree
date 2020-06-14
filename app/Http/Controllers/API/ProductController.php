@@ -31,7 +31,6 @@ class ProductController extends BaseController
     public function productList(Request $rquest)
     {
         $getRequest = $rquest->all();
-
           $productsList = Product::where('category_id',$getRequest['category_id'])->with(['Category.children' => function($query){
             return $query->where('status','Active')->get()->toArray();
             }])->get()->toArray();
